@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "ZelloSDK",
-            targets: ["ZelloSDK"]
+            targets: ["ZelloSDKTargets"]
         )
     ],
     dependencies: [
@@ -23,6 +23,19 @@ let package = Package(
         .package(url: "https://github.com/snowplow/snowplow-objc-tracker.git", from: "6.0.0"),
     ],
     targets: [
+      .target(name: "ZelloSDKTargets",
+              dependencies: [
+                .target(name: "ZelloCore"),
+                .target(name: "ZelloSecure"),
+                .target(name: "ZelloNetworking"),
+                .target(name: "UIUtility"),
+                .target(name: "ZelloSDK"),
+                .target(name: "Utility"),
+                .target(name: "ZelloSharedData"),
+                .target(name: "ZelloCoreSDK"),
+                .target(name: "ZelloNetworkExtension")
+              ]
+             ),
         // Binary targets for each .xcframework
         .binaryTarget(
             name: "ZelloCore",
