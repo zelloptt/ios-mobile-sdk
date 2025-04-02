@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.5
 import PackageDescription
 
 let package = Package(
@@ -25,7 +25,7 @@ let package = Package(
         .package(url: "https://github.com/zelloptt/Opus-iOS", from: "1.0.4"),
         .package(url: "https://github.com/krzyzanowskim/OpenSSL-Package", from: "3.3.2000"),
         .package(url: "https://github.com/robbiehanson/CocoaAsyncSocket.git", from: "7.6.5"),
-        .package(url: "https://github.com/CocoaLumberjack/CocoaLumberjack.git", from: "3.7.0"),
+        .package(url: "https://github.com/cooksey/CocoaLumberjack.git", branch: "master"),
         .package(url: "https://github.com/google/promises", from: "2.4.0"),
         .package(url: "https://github.com/marmelroy/PhoneNumberKit", from: "3.8.0"),
         .package(url: "https://github.com/SDWebImage/SDWebImage.git", from: "5.13.0"),
