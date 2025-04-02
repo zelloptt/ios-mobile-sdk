@@ -33,7 +33,10 @@ let package = Package(
                 .target(name: "Utility"),
                 .target(name: "ZelloSharedData"),
                 .target(name: "ZelloCoreSDK"),
-                .target(name: "ZelloNetworkExtension")
+                .target(name: "ZelloNetworkExtension"),
+                .product(name: "opus", package: "Opus-iOS"),
+                .product(name: "CocoaLumberjack", package: "CocoaLumberjack"),
+                .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack"),
               ]
              ),
         // Binary targets for each .xcframework
