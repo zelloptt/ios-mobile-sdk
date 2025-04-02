@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "ZelloSDK",
-            targets: ["ZelloSDKTargets"]
+            targets: ["ZelloSDKTargets", "ZelloSDK", "Utility", "UIUtility", "ZelloCore", "ZelloCoreSDK", "ZelloSecure", "ZelloNetworking", "ZelloSharedData", "ZelloNetworkExtension"]
         )
     ],
     dependencies: [
