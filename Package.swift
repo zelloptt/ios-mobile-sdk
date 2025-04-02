@@ -9,7 +9,18 @@ let package = Package(
     products: [
         .library(
             name: "ZelloSDK",
-            targets: ["ZelloSDKTargets", "ZelloSDK", "Utility", "UIUtility", "ZelloCore", "ZelloCoreSDK", "ZelloSecure", "ZelloNetworking", "ZelloSharedData", "ZelloNetworkExtension"]
+            targets: ["ZelloSDKTargets",
+                      "ZelloSDK",
+                      "Utility",
+                      "UtilityTarget",
+                      "UIUtility",
+                      "ZelloCore",
+                      "ZelloCoreSDK",
+                      "ZelloSecure",
+                      "ZelloNetworking",
+                      "ZelloSharedData",
+                      "ZelloNetworkExtension"
+                     ]
         )
     ],
     dependencies: [
@@ -42,7 +53,10 @@ let package = Package(
       .target(name: "UtilityTarget",
               dependencies: [
                 .target(name: "Utility"),
-                .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack")
+                .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack"),
+                .product(name: "CocoaLumberjack", package: "CocoaLumberjack"),
+                .product(name: "Promises", package: "Promises"),
+                .product(name: "PhoneNumberKit-Static", package: "PhoneNumberKit")
               ]
              ),
         // Binary targets for each .xcframework
