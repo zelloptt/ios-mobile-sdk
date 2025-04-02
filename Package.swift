@@ -30,13 +30,19 @@ let package = Package(
                 .target(name: "ZelloNetworking"),
                 .target(name: "UIUtility"),
                 .target(name: "ZelloSDK"),
-                .target(name: "Utility"),
+                .target(name: "UtilityTarget"),
                 .target(name: "ZelloSharedData"),
                 .target(name: "ZelloCoreSDK"),
                 .target(name: "ZelloNetworkExtension"),
                 .product(name: "opus", package: "Opus-iOS"),
                 .product(name: "CocoaLumberjack", package: "CocoaLumberjack"),
                 .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack"),
+              ]
+             ),
+      .target(name: "UtilityTarget",
+              dependencies: [
+                .target(name: "Utility"),
+                .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack")
               ]
              ),
         // Binary targets for each .xcframework
