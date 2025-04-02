@@ -1,2 +1,2 @@
 // Empty file to satisfy Xcode/spm
-import CocoaLumberjackSwift
+@_implementationOnly import CocoaLumberjackSwift
