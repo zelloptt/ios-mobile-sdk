@@ -61,47 +61,47 @@ let package = Package(
         .binaryTarget(
             name: "ZelloCore",
             url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloCore.zip",
-            checksum: "60d24524cc2740d32a5a16f74e4cf5183dada3b4a23fac3bbc5a6ea4a3c2e69c"
+            checksum: "c79cb3b1043e4e025816c08b64c49e849c5f5a8d3c507fc8f7e1183407a30fff"
         ),
         .binaryTarget(
             name: "ZelloSecure",
             url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloSecure.zip",
-            checksum: "68a774198ec2cf83e09e9bed15ecdfd49969af82f350bd1397034410eeb538d5"
+            checksum: "b14f41c199e5606c220411ecb617bde927387ce04c0ad8dc61a58b8a2a443c8e"
         ),
         .binaryTarget(
             name: "ZelloNetworking",
             url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloNetworking.zip",
-            checksum: "2cc87d7aaade97fdbe10d6722843c0ac1a15dd3aa7de54a6f95eea7a9d7a91ee"
+            checksum: "e3a53a5ef672d898f700b53ec8d67272ce02ea4ac244a6ccc8da7ec18b3ef0c3"
         ),
         .binaryTarget(
             name: "Utility",
             url: "https://zello.com/sdk/dist/ios/spm/1.1.0/Utility.zip",
-            checksum: "3f4bfdc2fae4476ef6401ee6b7dc65992a7a4c37fdf1001f495087e07cb6af22"
+            checksum: "656260a7ccec76d6055d96e9797a54954a2d4e69f3b31a67f6478574ef9ce7f3"
         ),
         .binaryTarget(
             name: "UIUtility",
             url: "https://zello.com/sdk/dist/ios/spm/1.1.0/UIUtility.zip",
-            checksum: "83e9f87602ddc1573333e43922a5c6abce10601100d16740f34c9708e0cfcbfb"
+            checksum: "a8d91d845f5349f72e0c48222fdd44bc5450d07c1a38471783418f26525b8c77"
         ),
         .binaryTarget(
             name: "ZelloSharedData",
             url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloSharedData.zip",
-            checksum: "3ce96a63fb9c9060175be12c81ef5b5f6ec7dd3ca6f07b252cdafc96c6374664"
+            checksum: "6fa4f4587b43106aa8d3d3a8bb55f914f46dbdfde35a8b71e4d1870ed39e6991"
         ),
         .binaryTarget(
             name: "ZelloCoreSDK",
             url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloCoreSDK.zip",
-            checksum: "a46a7c823b5aaeb160e1b6e57ed72708398e2ff9312a8bd0bc915f1c6b1eb5f7"
+            checksum: "a01152113e97058cc2a8fba4dca5823cf6458bcbfa9bfd1a156f8288f583d5b8"
         ),
         .binaryTarget(
             name: "ZelloSDK",
             url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloSDK.zip",
-            checksum: "1b6280be4c814fb4772439a77efbbdd3fdeb73fec94accc8c401703bc025a25e"
+            checksum: "4e92bb12c8d57a02262687a8f48976a2517069dd6375d453cbe7d3f28fdf1bea"
         ),
         .binaryTarget(
             name: "ZelloNetworkExtension",
             url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloNetworkExtension.zip",
-            checksum: "d1e43e45e690913a882bc66f61dcd9d762cb2b71512c073926fdc0717f581053"
+            checksum: "18266a221f8f110564477d70bc7e074462e943fe3594d2deaa5d79951f9166b5"
         )
     ],
     swiftLanguageVersions: [.v5]
