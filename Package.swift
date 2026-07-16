@@ -1,87 +1,132 @@
-// swift-tools-version:5.3
+// swift-tools-version: 5.9
 import PackageDescription
 
 let package = Package(
     name: "ZelloSDK",
-    platforms: [
-        .iOS(.v14)
-    ],
+    platforms: [.iOS("17.0")],
     products: [
-        .library(
-            name: "ZelloSDK",
-            targets: ["ZelloSDKTargets"]
-        )
+        .library(name: "ZelloSDKUmbrella", type: .dynamic, targets: ["ZelloSDKUmbrella"])
     ],
     dependencies: [
-        .package(url: "https://github.com/zelloptt/Opus-iOS", from: "1.0.4"),
-        .package(url: "https://github.com/krzyzanowskim/OpenSSL-Package", from: "3.3.2000"),
-        .package(url: "https://github.com/robbiehanson/CocoaAsyncSocket.git", from: "7.6.5"),
-        .package(url: "https://github.com/CocoaLumberjack/CocoaLumberjack.git", from: "3.7.0"),
-        .package(url: "https://github.com/google/promises", from: "2.4.0"),
-        .package(url: "https://github.com/marmelroy/PhoneNumberKit", from: "3.8.0"),
-        .package(url: "https://github.com/SDWebImage/SDWebImage.git", from: "5.13.0"),
-        .package(url: "https://github.com/snowplow/snowplow-objc-tracker.git", from: "6.0.0"),
+        .package(url: "https://github.com/CocoaLumberjack/CocoaLumberjack", from: "3.9.0"),
+        .package(url: "https://github.com/marmelroy/PhoneNumberKit", from: "3.7.10"),
+        .package(url: "https://github.com/SDWebImage/SDWebImage", from: "5.19.1"),
+        .package(url: "https://github.com/snowplow/snowplow-ios-tracker", from: "6.0.7"),
+        .package(url: "https://github.com/krzyzanowskim/OpenSSL", from: "1.1.2301"),
+        .package(url: "https://github.com/zelloptt/Opus-iOS", from: "1.0.5")
     ],
     targets: [
-      .target(name: "ZelloSDKTargets",
-              dependencies: [
-                .target(name: "ZelloCore"),
-                .target(name: "ZelloSecure"),
-                .target(name: "ZelloNetworking"),
-                .target(name: "UIUtility"),
-                .target(name: "ZelloSDK"),
-                .target(name: "Utility"),
-                .target(name: "ZelloSharedData"),
-                .target(name: "ZelloCoreSDK"),
-                .target(name: "ZelloNetworkExtension")
-              ]
-             ),
-        // Binary targets for each .xcframework
         .binaryTarget(
-            name: "ZelloCore",
-            url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloCore.zip",
-            checksum: "cb85de0ebd85d0dea61e73fbca15504d51d49884d7480519ed739dade3670999"
-        ),
-        .binaryTarget(
-            name: "ZelloSecure",
-            url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloSecure.zip",
-            checksum: "dc3fa98c6af889f59093a856195fcf279accf236e2fe1de320b538702a3055dd"
-        ),
-        .binaryTarget(
-            name: "ZelloNetworking",
-            url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloNetworking.zip",
-            checksum: "06ccb9d9fa881b7923856eaaa9fc5af67b720878ef09e9cc3b70fcc4614a695e"
+            name: "UIUtility",
+            url: "https://zello.com/sdk/dist/ios/spm/3.2.1/UIUtility.zip",
+            checksum: "ebf0c4bbbc4e9f9d7b465728f0ceb5f964a8f2c994cbaf5701c1156efa14f42f"
         ),
         .binaryTarget(
             name: "Utility",
-            url: "https://zello.com/sdk/dist/ios/spm/1.1.0/Utility.zip",
-            checksum: "a48b98f836de4ecb96462c6226efb8e4621e40fbf428c63d10fb4077827ac89b"
+            url: "https://zello.com/sdk/dist/ios/spm/3.2.1/Utility.zip",
+            checksum: "73797bade66346a6537ae4ddee7c291cfecc9e4956e5f9a5e396106cdfe084ce"
         ),
         .binaryTarget(
-            name: "UIUtility",
-            url: "https://zello.com/sdk/dist/ios/spm/1.1.0/UIUtility.zip",
-            checksum: "953308e571c8e69d16f33300e9594170bde513a5adb42f243ada117a0074b3ac"
-        ),
-        .binaryTarget(
-            name: "ZelloSharedData",
-            url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloSharedData.zip",
-            checksum: "fc4727b46784a578e55efc8a49121e93f9067a2fa92119ba771aa3b10dc4dc52"
+            name: "ZelloCore",
+            url: "https://zello.com/sdk/dist/ios/spm/3.2.1/ZelloCore.zip",
+            checksum: "14ff55d6bd1cb6ff2172ae855e25ef002bce2741e94422551a7864c6d5ac2c3d"
         ),
         .binaryTarget(
             name: "ZelloCoreSDK",
-            url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloCoreSDK.zip",
-            checksum: "2aaf10a1cb00292487891f9c63b05bd74b79383771f29bfcf5ed9ed4ac6f40b0"
-        ),
-        .binaryTarget(
-            name: "ZelloSDK",
-            url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloSDK.zip",
-            checksum: "d6022b5a32096f1a4fce00afdc9eeb01aa32b2d620ed01a635ea8133b009c17c"
+            url: "https://zello.com/sdk/dist/ios/spm/3.2.1/ZelloCoreSDK.zip",
+            checksum: "da41f4e10bd75dab26cad5a294be4c6a086edd9200709e3b4e9e46e6ce5fa22f"
         ),
         .binaryTarget(
             name: "ZelloNetworkExtension",
-            url: "https://zello.com/sdk/dist/ios/spm/1.1.0/ZelloNetworkExtension.zip",
-            checksum: "5187c858c4a92eac0f83e9ab2600947c7fedf513d829b2dc6a41e85d6b641c4f"
+            url: "https://zello.com/sdk/dist/ios/spm/3.2.1/ZelloNetworkExtension.zip",
+            checksum: "0ae282ef0ec4dbca650d31ed535b423f6979c6f7ffdfeee02811caf871cd7f73"
+        ),
+        .binaryTarget(
+            name: "ZelloNetworking",
+            url: "https://zello.com/sdk/dist/ios/spm/3.2.1/ZelloNetworking.zip",
+            checksum: "6311468e0755996627f92195d0b4185181b882fc0f9f17fb28db798f169a7cc0"
+        ),
+        .binaryTarget(
+            name: "ZelloSDKBinary",
+            url: "https://zello.com/sdk/dist/ios/spm/3.2.1/ZelloSDK.zip",
+            checksum: "d6c540de12dea5e4ebde25a98778736427c46d4d8406905aca42d9e34481fc90"
+        ),
+        .binaryTarget(
+            name: "ZelloSecure",
+            url: "https://zello.com/sdk/dist/ios/spm/3.2.1/ZelloSecure.zip",
+            checksum: "afbb7f27ed85f78a475bb94c61c168a2c871ecfe863dfcb02d858d4edbc4c2dd"
+        ),
+        .binaryTarget(
+            name: "ZelloSharedData",
+            url: "https://zello.com/sdk/dist/ios/spm/3.2.1/ZelloSharedData.zip",
+            checksum: "0152db99495f8a25911e77dec2ade8c11c03fc0b49fb673029ad048ba2ccf93f"
+        ),
+        .binaryTarget(
+            name: "RemoteConfigurationForScripting",
+            url: "https://zello.com/sdk/dist/ios/spm/3.2.1/RemoteConfigurationForScripting.zip",
+            checksum: "44dac59637b4e4f67516a72578be6654067e0bc694e672cf1984acd4341bda8f"
+        ),
+        .binaryTarget(
+            name: "RemoteConfigurationUtilities",
+            url: "https://zello.com/sdk/dist/ios/spm/3.2.1/RemoteConfigurationUtilities.zip",
+            checksum: "6554e61ac0a891b03ab86f12f85e08e95789e28cab1cf111412cb464380ec67a"
+        ),
+        .binaryTarget(
+            name: "RemoteConfiguration",
+            url: "https://zello.com/sdk/dist/ios/spm/3.2.1/RemoteConfiguration.zip",
+            checksum: "864fae8a9f1f6bb9cbb3ea28b56890f9af57f6f8707673142d15570223424802"
+        ),
+        .target(
+            name: "Zello3rdPartyDependenciesConfigurationObjC",
+            dependencies: [
+                .product(name: "CocoaLumberjack", package: "CocoaLumberjack"),
+                "Utility",
+                "ZelloSecure",
+                .product(name: "OpenSSL", package: "OpenSSL")
+            ],
+            path: "Zello3rdPartyDependenciesConfiguration/Sources/ObjC",
+            publicHeadersPath: "include",
+            cSettings: [.define("DEBUG", .when(configuration: .debug))]
+        ),
+        .target(
+            name: "Zello3rdPartyDependenciesConfiguration",
+            dependencies: [
+                "Zello3rdPartyDependenciesConfigurationObjC",
+                "Utility",
+                "ZelloSecure",
+                .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack"),
+                .product(name: "CocoaLumberjack", package: "CocoaLumberjack"),
+                .product(name: "PhoneNumberKit", package: "PhoneNumberKit"),
+                .product(name: "SDWebImage", package: "SDWebImage"),
+                .product(name: "OpenSSL", package: "OpenSSL"),
+                .product(name: "SnowplowTracker", package: "snowplow-ios-tracker"),
+                .product(name: "opus", package: "opus-ios"),
+                .product(name: "ogg", package: "opus-ios")
+            ],
+            path: "Zello3rdPartyDependenciesConfiguration/Sources/Swift",
+            swiftSettings: [.define("DEBUG", .when(configuration: .debug))]
+        ),
+
+        // -------- Umbrella target (public) --------
+        .target(
+            name: "ZelloSDKUmbrella",
+            dependencies: [
+                // Your prebuilt SDK module
+                "ZelloSDKBinary",
+                "Zello3rdPartyDependenciesConfiguration",
+                "ZelloCore",
+                "ZelloCoreSDK",
+                "ZelloNetworking",
+                "ZelloSecure",
+                "ZelloSharedData",
+                "UIUtility",
+                "Utility",
+                "ZelloNetworkExtension",
+                "RemoteConfigurationForScripting",
+                "RemoteConfigurationUtilities",
+                "RemoteConfiguration"
+            ],
+            path: "Sources/Umbrella"
         )
-    ],
-    swiftLanguageVersions: [.v5]
+    ]
 )
